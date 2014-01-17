@@ -36,14 +36,224 @@
 //				display: none
 // ## fonts 
 // Save fonts to /css/fonts, after that write (eot, woff, ttf):
-// +font(book, cytiapro-black-webfont)  
-// =book
-// 	font-family: "book",arial,sans-serif 
++font(med, dinpro-medium)  
+=med
+	font-family: "med", arial, sans-serif 
++font(bold, dinpro-bold)  
+=bold
+	font-family: "bold", arial, sans-serif 
++font(light, dinpro-light)  
+=light
+	font-family: "light", arial, sans-serif 
+	
+$red: #ed1c24
+$yel: #f4b42b
+$dark: #2d2b31
 	
 body
-	font-size: 12px 
+	+med
+	font-size: 14px 
 	font-family: Arial, sans-serif 
 	line-height: 1.4
+	color: $dark
 
+a
+	text-decoration: none
 
 // common blocks
+.container
+	width: 1366px
+	margin: 0 auto
+	
+.title
+	margin-bottom: 25px
+	+bold
+	text-transform: uppercase
+	font-size: 18px
+	a
+		color: $dark 
+	span
+		color: $red 
+
+.top
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	background: #FFF
+	z-index: 100 
+.top__in
+	position: relative
+	max-width: 1600px
+	min-width: 1000px
+	height: 100px
+	margin: 0 auto
+.top__content
+	padding: 0 185px 0 345px
+.logo
+	position: absolute
+	top: 18px
+	left: 40px
+	+s(logo)
+	+hidetext
+.top__up
+	height: 47px
+	border-bottom: 1px dotted #ccc 
+.top__links
+	float: right
+	li
+		float: left
+		margin-left: 20px
+		&:first-child
+			margin: 0
+		&.is-active
+			a
+				background: $dark
+				color: #fff  
+	a
+		display: block
+		height: 42px
+		padding: 0 20px 
+		line-height: 46px
+		font-size: 12px
+		color: #999 
+.my-region, .my-region__title, .my-region__city
+	float: left
+	height: 47px
+	line-height: 46px
+	font-size: 12px
+.my-region__title
+	margin-right: 10px
+	color: #999 
+.top__down
+	height: 52px 
+	
+.nav
+	float: left
+	> ul
+		float: left
+		> li
+			float: left
+			margin-left: 60px
+			&:first-child
+				margin: 0
+			> a
+				position: relative
+				display: block
+				height: 52px
+				padding: 0 30px 0 0
+				line-height: 52px
+				font-size: 16px
+				color: $dark
+				i
+					position: absolute
+					top: 23px
+					right: 10px 
+					+s(nav-arr)
+
+.my-mts-link
+	float: right
+	a
+		position: relative
+		display: block
+		height: 48px
+		padding: 0 0 0 27px
+		border-bottom: 4px solid $red 
+		line-height: 52px		
+		font-size: 16px
+		color: $dark
+	span
+		color: $red 
+	i
+		position: absolute
+		top: 19px
+		left: 0
+		+s(my-mts-heart)
+
+.lang
+	position: absolute
+	top: 40px
+	right: 40px
+	a
+		display: inline-block
+		font-size: 12px
+		color: #999
+		&:first-child
+			margin-right: 15px
+		&.is-active
+			color: $red 
+			
+.top__search	
+	position: absolute
+	top: 35px
+	right: 115px
+	
+.top__search-btn
+	width: 28px
+	height: 28px
+	border-radius: 50%
+	border: 2px solid #bab9b9
+	background: none 
+	font-size: 0
+	i
+		display: inline-block
+		+s(search)
+
+
+.btn
+	position: relative
+	display: inline-block
+	padding-right: 16px
+	overflow: hidden
+	&:hover
+		.btn__over
+			left: 0
+			opacity: 1 
+.btn__in
+	position: relative
+	display: block
+.btn__under, .btn__over
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background: $yel
+	z-index: 1  	
+.btn__under	
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		right: -16px
+		+arr(16, 50, $yel, r)
+.btn__text
+	position: relative
+	display: block
+	height: 50px
+	padding: 0 40px
+	line-height: 50px
+	+bold
+	font-size: 14px
+	text-transform: uppercase
+	color: #FFF 
+	z-index: 3
+.btn__over
+	left: -100%
+	background: $dark
+	+tr(all .15s linear)
+	opacity: 0 
+	z-index: 2 
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		right: -16px
+		+arr(16, 50, $dark, r)
+
+
+
+
+
+
+

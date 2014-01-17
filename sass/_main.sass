@@ -1,2 +1,280 @@
 // Normally mainpage styles
- 
+.m-slider
+	position: relative
+.m-slider__pic
+	position: absolute
+	top: 100px
+	left: 0
+	right: 0
+	bottom: 0	
+.m-slider__pic-item
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	+cover
+.m-slider__container
+	position: absolute
+	top: 100px
+	left: 50%
+	bottom: 0
+	width: 1600px
+	margin-left: -800px
+.m-slider__content
+	position: absolute
+	left: 40px
+	bottom: 115px
+	width: 550px 
+.m-slider__title
+	margin-bottom: 10px
+	+bold
+	font-size: 70px	
+	color: #fff 
+	line-height: 1
+	text-transform: uppercase
+.m-slider__text
+	margin-bottom: 25px
+	font-size: 16px
+	color: #FFF
+	a
+		color: $yel 
+.m-slider__pager
+	position: absolute
+	left: 40px
+	bottom: 45px
+	font-size: 0
+	a
+		display: inline-block
+		width: 7px
+		height: 7px		
+		margin-right: 5px 
+		border: 2px solid #fff
+		background: #FFF
+		border-radius: 50%
+		&.is-active
+			background: none 
+.m-slider__service
+	position: absolute
+	right: 40px
+	bottom: 200px
+	width: 180px
+	font-size: 0
+	a
+		display: block
+		margin-top: 25px
+	em, span, i
+		display: inline-block	
+		vertical-align: middle
+	em
+		width: 66px
+		height: 66px
+		margin-right: 20px
+		background: rgba(0,0,0,.1)
+		border-radius: 50%
+		border: 2px solid #fff
+		line-height: 70px
+		text-align: center
+		vertical-align: middle
+	span		
+		width: 85px 
+		font-size: 14px
+		color: #FFF
+		text-transform: uppercase 
+.m-slider__service-account
+	+s(slider-account)
+.m-slider__service-sms
+	+s(slider-sms)
+.m-slider__my-mts
+	position: absolute
+	right: 0
+	bottom: 110px
+	a
+		display: block
+		width: 220px
+		height: 65px
+		background: $red 
+		line-height: 65px
+		text-align: center
+		+light
+		font-size: 30px
+		color: #FFF 
+		text-transform: uppercase
+.m-slider__prev, .m-slider__next
+	position: absolute
+	bottom: 33px
+.m-slider__next
+	right: 40px
+	+s(m-slider-next)
+.m-slider__prev
+	right: 89px
+	+s(m-slider-prev)
+
+
+
+.m-serv
+	padding: 35px 40px 30px
+	font-size: 0
+.m-serv__item
+	position: relative
+	display: inline-block
+	width: 48%
+	padding-left: 35px
+	+box
+	vertical-align: top
+	&:first-child
+		margin-right: 4%
+.m-serv__title
+	position: absolute
+	top: 0
+	left: 0
+	width: 35px
+	height: 100px 
+	span
+		display: block
+		width: 100px
+		height: 30px
+		margin: 35px 0 0 -35px
+		text-align: center
+		+rotate(-90)
+		+bold
+		font-size: 18px
+		text-transform: uppercase
+.m-serv__list
+	display: table
+	width: 100%
+.m-serv__row
+	display: table-row
+	a
+		display: table-cell
+		width: 33%
+		height: 100px
+		padding: 0 10px 0 15px
+		border-right: 1px dotted $dark
+		vertical-align: middle
+		&:first-child
+			border-left: 1px dotted $dark 
+	i, span
+		display: inline-block
+		vertical-align: middle
+	i
+		margin-right: 15px
+	span
+		font-size: 14px
+		color: $dark
+.m-serv__mobile
+	+s(for-inet-mobile)
+.m-serv__laptop
+	+s(for-inet-laptop)
+.m-serv__pc
+	+s(for-inet-pc)
+.m-serv__tariff
+	+s(for-client-tariff)
+.m-serv__rouming
+	+s(for-client-rouming)
+.m-serv__programm
+	+s(for-client-programm)
+.m-serv__item-client
+	a
+		border-color: $red
+		&:first-child
+			border-color: $red
+	span
+		color: $red 
+
+
+.m-info
+	padding: 35px 0 50px 
+	margin-bottom: 40px
+	background: #f4f4f4 
+	.container
+		+clr
+.m-news
+	float: left
+	width: 64%
+.m-news__list
+	+clr
+.m-news__item
+	position: relative
+	float: left
+	width: 48%
+	+box
+	padding-left: 120px
+	&:first-child
+		margin-right: 4%
+.m-news__date
+	position: absolute
+	top: 0
+	left: 0
+	span, i
+		float: left
+		margin-right: -5px
+		+light
+		font-size: 48px
+		letter-spacing: -3px
+		line-height: 1
+	i
+		margin-top: 15px
+		color: $red 
+		font-style: normal
+		& + span
+			margin-top: 35px 
+.m-news__title
+	padding-bottom: 15px
+	margin-bottom: 15px
+	border-bottom: 1px dotted $dark 
+	a
+		+bold
+		font-size: 14px
+		text-transform: uppercase
+		color: $dark 
+.m-section
+	float: right
+	width: 32%
+.m-section__list
+	+clr
+	ul
+		float: left
+		width: 45%
+		margin-right: 5%
+	li
+		margin-top: 12px 
+		&:first-child
+			margin: 0
+	a
+		+bold
+		text-transform: uppercase
+		color: $dark 
+	span
+		color: $red 
+
+
+.m-more
+	margin-bottom: 40px
+	+clr
+.m-sim, .m-action, .m-help
+	float: left
+	width: 31%
+	min-height: 140px
+	+box
+.m-sim, .m-action
+	margin-right: 3%
+.m-sim
+	position: relative
+	background: $red 
+	i
+		position: absolute
+		top: 30px
+		left: 30px
+		+s(sim-card)
+.m-action
+	background: #F4F4F4 
+
+
+
+
+
+
+
+
+

@@ -21,11 +21,33 @@
 	bottom: 0
 	width: 1600px
 	margin-left: -800px
+	z-index: 200 
+	+rt(1600)
+		width: 100%
+		min-width: 1000px
+		left: 0
+		right: 0
+		margin: 0
 .m-slider__content
 	position: absolute
 	left: 40px
 	bottom: 115px
 	width: 550px 
+.m-slider__item
+	top: auto !important
+	bottom: 0 !important
+	&.cycle-slide-active
+		.m-slider__title,
+		.m-slider__text,
+		.m-slider__more
+			padding: 0
+			opacity: 1 
+.m-slider__title,
+.m-slider__text,
+.m-slider__more
+	padding-bottom: 70px
+	opacity: 0
+	+tr(all .2s linear) 
 .m-slider__title
 	margin-bottom: 10px
 	+bold
@@ -44,7 +66,7 @@
 	left: 40px
 	bottom: 45px
 	font-size: 0
-	a
+	span
 		display: inline-block
 		width: 7px
 		height: 7px		
@@ -52,57 +74,66 @@
 		border: 2px solid #fff
 		background: #FFF
 		border-radius: 50%
-		&.is-active
+		+hidetext
+		cursor: pointer
+		+tr(background .2s linear)
+		&.cycle-pager-active
+			background: none 
+			cursor: default
+		&:hover
 			background: none 
 .m-slider__service
 	position: absolute
 	right: 40px
-	bottom: 200px
-	width: 180px
+	bottom: 180px
+	background: $red 
 	font-size: 0
 	a
+		position: relative
 		display: block
-		margin-top: 25px
-	em, span, i
+		height: 70px
+		padding: 0 45px
+		line-height: 70px
+		+tr(background .3s linear)
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 45px
+			right: 45px
+			border-top: 1px dotted #fff  
+			+tr(opacity .2s linear)
+		&:first-child
+			&:before
+				display: none
+		&:hover
+			background: $yel
+			&:before
+				opacity: 0 
+			& + a
+				&:before
+					opacity: 0 
+	span, i
 		display: inline-block	
 		vertical-align: middle
-	em
-		width: 66px
-		height: 66px
-		margin-right: 20px
-		background: rgba(0,0,0,.1)
-		border-radius: 50%
-		border: 2px solid #fff
-		line-height: 70px
-		text-align: center
-		vertical-align: middle
 	span		
-		width: 85px 
+		width: 90px 
 		font-size: 14px
 		color: #FFF
 		text-transform: uppercase 
+		line-height: 1.4
 .m-slider__service-account
+	margin: 0 15px 0 1px
 	+s(slider-account)
 .m-slider__service-sms
+	margin-right: 15px
 	+s(slider-sms)
-.m-slider__my-mts
-	position: absolute
-	right: 0
-	bottom: 110px
-	a
-		display: block
-		width: 220px
-		height: 65px
-		background: $red 
-		line-height: 65px
-		text-align: center
-		+light
-		font-size: 30px
-		color: #FFF 
-		text-transform: uppercase
+.m-slider__service-mts
+	margin: 0 19px 0 5px
+	+s(slider-mts)
 .m-slider__prev, .m-slider__next
 	position: absolute
-	bottom: 33px
+	bottom: 33px 
 .m-slider__next
 	right: 40px
 	+s(m-slider-next)
@@ -113,7 +144,7 @@
 
 
 .m-serv
-	padding: 35px 40px 30px
+	padding: 35px 0 30px
 	font-size: 0
 .m-serv__item
 	position: relative
@@ -124,6 +155,10 @@
 	vertical-align: top
 	&:first-child
 		margin-right: 4%
+		+rt(1366)
+			margin: 0 0 25px 
+	+rt(1366)
+		width: 100%
 .m-serv__title
 	position: absolute
 	top: 0
@@ -146,45 +181,95 @@
 .m-serv__row
 	display: table-row
 	a
+		position: relative
 		display: table-cell
 		width: 33%
 		height: 100px
 		padding: 0 10px 0 15px
-		border-right: 1px dotted $dark
 		vertical-align: middle
-		&:first-child
-			border-left: 1px dotted $dark 
+		color: $dark
+		+tr(all .2s linear)
+		&:before, &:after
+			content: ""
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			border-right: 1px dotted $dark
+			+tr(opacity .2s linear) 
+		&:before
+			left: 0
+			right: auto 
+		&:after
+			opacity: 0 
+		&:last-child
+			&:after
+				opacity: 1 
+		&:hover
+			background: $yel 
+			color: #fff
+			&:before, &:after
+				opacity: 0 
+			&  + a
+				&:before, &:after
+					opacity: 0 
+			.m-serv__mobile
+				+s(for-inet-mobile-h)
+			.m-serv__laptop
+				+s(for-inet-laptop-h)
+			.m-serv__pc
+				+s(for-inet-pc-h)
+			.m-serv__tariff
+				+s(for-client-tariff-h)
+			.m-serv__rouming
+				+s(for-client-rouming-h)
+			.m-serv__programm
+				+s(for-client-programm-h)
+			i
+				&:before
+					opacity: 0 
 	i, span
 		display: inline-block
-		vertical-align: middle
+		vertical-align: middle 
 	i
 		margin-right: 15px
+		&:before
+			content: ""
+			display: block
+			+tr(opacity .2s linear)
 	span
 		font-size: 14px
-		color: $dark
 .m-serv__mobile
-	+s(for-inet-mobile)
+	&:before
+		+s(for-inet-mobile)
 .m-serv__laptop
-	+s(for-inet-laptop)
+	&:before
+		+s(for-inet-laptop)
 .m-serv__pc
-	+s(for-inet-pc)
+	&:before
+		+s(for-inet-pc)
 .m-serv__tariff
-	+s(for-client-tariff)
+	&:before
+		+s(for-client-tariff)
 .m-serv__rouming
-	+s(for-client-rouming)
+	&:before
+		+s(for-client-rouming)
 .m-serv__programm
-	+s(for-client-programm)
+	&:before
+		+s(for-client-programm)
 .m-serv__item-client
 	a
-		border-color: $red
-		&:first-child
-			border-color: $red
-	span
 		color: $red 
+		&:before, &:after
+			border-color: $red
+	.m-serv__title
+		span
+			color: $red 
+
 
 
 .m-info
-	padding: 35px 0 50px 
+	padding: 35px 0
 	margin-bottom: 40px
 	background: #f4f4f4 
 	.container
@@ -200,6 +285,8 @@
 	width: 48%
 	+box
 	padding-left: 120px
+	+rt(1600)
+		padding-left: 85px
 	&:first-child
 		margin-right: 4%
 .m-news__date
@@ -208,17 +295,24 @@
 	left: 0
 	span, i
 		float: left
-		margin-right: -5px
+		margin-right: -3px
 		+light
 		font-size: 48px
 		letter-spacing: -3px
 		line-height: 1
+		+rt(1600)
+			font-size: 36px
+			margin-right: -1px
 	i
 		margin-top: 15px
 		color: $red 
 		font-style: normal
+		+rt(1600)
+			margin-top: 10px
 		& + span
-			margin-top: 35px 
+			margin-top: 35px
+			+rt(1600)
+				margin-top: 25px 
 .m-news__title
 	padding-bottom: 15px
 	margin-bottom: 15px
@@ -252,26 +346,166 @@
 .m-more
 	margin-bottom: 40px
 	+clr
-.m-sim, .m-action, .m-help
+.m-more__item, .m-help
 	float: left
 	width: 31%
+.m-more__item
+	margin-right: 3%
+	overflow: hidden
+	a
+		position: relative
+		display: block
+		min-height: 140px
+		background: $dark
+		+rt(1366)
+			min-height: 110px
+	&:hover
+		.m-more__in
+			right: 100%
+		.m-more__go	
+			right: 30px
+.m-more__in
+	position: relative
+	right: 0
 	min-height: 140px
 	+box
-.m-sim, .m-action
-	margin-right: 3%
-.m-sim
-	position: relative
-	background: $red 
+	+tr(all .3s linear)
+	+rt(1366)
+		min-height: 110px
+.m-more__go	
+	position: absolute	
+	bottom: 10px
+	right: 100%
+	+light
+	font-size: 48px
+	color: #fff
+	text-transform: uppercase
+	line-height: 1  
+	+tr(all .3s linear)	
+	+rt(1366)
+		font-size: 34px		
+.m-more__item_sim
+	.m-more__in
+		padding: 20px 20px 10px 100px 
+		background: $red 
+		+bold
+		text-transform: uppercase
+		color: #FFF 
+		i
+			position: absolute
+			top: 30px
+			left: 30px
+			+s(sim-card)
+			+rt(1366)
+				top: 25px
+				left: 20px
+				+s(sim-card-sm)
+		span
+			display: block
+			padding-top: 3px
+			+light
+			font-size: 48px 
+			line-height: 1
+			+rt(1366)
+				font-size: 34px
+		+rt(1366)
+			padding: 15px 15px 10px 75px 
+			font-size: 12px
+.m-more__item_action
+	.m-more__in
+		padding: 20px 20px 10px 160px 
+		background: #F4F4F4 
+		+bold
+		text-transform: uppercase
+		color: $dark 
+		overflow: hidden
+		i
+			position: absolute
+			top: 50%
+			left: -15px
+			margin-top: -80px
+			+s(know-more)
+			+rt(1366)
+				left: 0
+				margin-top: -54px
+				+s(know-more-sm)
+		span
+			position: absolute
+			bottom: 15px
+			left: 160px
+			+light
+			font-size: 24px
+			+rt(1366)
+				left: 120px
+				font-size: 18px
+		+rt(1366)
+			padding: 15px 15px 10px 120px 
+			font-size: 12px
+.m-help
+	font-size: 0
+.m-help__title
+	padding-bottom: 10px
+	margin-bottom: 15px
+	border-bottom: 1px dotted $dark 
+	+light
+	font-size: 48px
+	text-transform: uppercase
+	+clr
+	+rt(1366)
+		font-size: 34px
+	span, i
+		float: left
+		line-height: 1
 	i
-		position: absolute
-		top: 30px
-		left: 30px
-		+s(sim-card)
-.m-action
-	background: #F4F4F4 
-
-
-
+		margin-top: 10px
+		font-style: normal 
+		color: $red 
+		& + span
+			margin-top: 15px
+.m-help__info
+	position: relative
+	text-align: justify
+	&:after
+		content: ""
+		display: inline-block
+		width: 100%
+		height: 0px
+	li
+		display: inline-block
+		vertical-align: top
+		line-height: 1
+	strong
+		display: block
+		margin-bottom: 10px
+		+bold
+		font-size: 14px
+		text-transform: uppercase
+		letter-spacing: -1px
+		+rt(1600)
+			margin-bottom: 5px
+			font-size: 11px
+	span
+		+bold
+		font-size: 30px
+		text-transform: uppercase
+		+rt(1600)
+			font-size: 22px
+	i
+		display: inline-block
+		margin: 3px 7px 0 0  
+		vertical-align: top
+		font-size: 14px
+		color: $red  
+		font-style: normal 
+		+rt(1600)
+			margin: 2px 5px 0 0 
+			font-size: 12px
+.m-help__mobile
+	span
+		color: $red 
+.m-help__or	
+	margin-top: 15px
+	font-size: 14px
 
 
 

@@ -50,20 +50,30 @@ $red: #ed1c24
 $yel: #f4b42b
 $dark: #2d2b31
 	
+//media query
+@mixin rt($media)
+	@if $media
+		@media only screen and (max-width: $media+'px')
+			@content
+
 body
+	min-width: 1000px
 	+med
 	font-size: 14px 
-	font-family: Arial, sans-serif 
 	line-height: 1.4
 	color: $dark
 
 a
 	text-decoration: none
 
+
 // common blocks
 .container
-	width: 1366px
+	width: 1366px - 80px
 	margin: 0 auto
+	+rt(1366)
+		width: auto
+		padding: 0 20px 
 	
 .title
 	margin-bottom: 25px
@@ -75,13 +85,36 @@ a
 	span
 		color: $red 
 
+.white
+	margin-bottom: 25px
+	background: #FFF 
+
+.link
+	position: relative
+	padding-bottom: 4px
+	&:after
+		content: ""
+		position: absolute
+		bottom: 0
+		left: 50%
+		right: 50%
+		height: 3px
+		background: $red 
+		+tr(all .2s linear)
+	&:hover
+		&:after
+			left: 0
+			right: 0
+
 .top
 	position: fixed
 	top: 0
 	left: 0
 	right: 0
+	min-width: 1000px
 	background: #FFF
-	z-index: 100 
+	box-shadow: 0 0 5px rgba(0,0,0,.2)
+	z-index: 300 
 .top__in
 	position: relative
 	max-width: 1600px
@@ -89,13 +122,22 @@ a
 	height: 100px
 	margin: 0 auto
 .top__content
-	padding: 0 185px 0 345px
+	padding: 0 185px 0 320px
+	+tr(padding .3s linear)
+	&.is-move
+		padding: 0 300px 0 300px 
+	+rt(1600)
+		padding: 0 150px 0 240px 
+		&.is-move
+			padding: 0 150px 0 240px 
 .logo
 	position: absolute
 	top: 18px
 	left: 40px
 	+s(logo)
 	+hidetext
+	+rt(1600)
+		left: 20px
 .top__up
 	height: 47px
 	border-bottom: 1px dotted #ccc 
@@ -104,12 +146,15 @@ a
 	li
 		float: left
 		margin-left: 20px
+		+rt(1600)
+			margin: 0
 		&:first-child
 			margin: 0
 		&.is-active
 			a
 				background: $dark
 				color: #fff  
+				cursor: default
 	a
 		display: block
 		height: 42px
@@ -117,39 +162,119 @@ a
 		line-height: 46px
 		font-size: 12px
 		color: #999 
+		+tr(all .3s linear)
+		&:hover
+			background: $red
+			color: #fff  
+.my-region
+	margin: 15px 0 0 20px
 .my-region, .my-region__title, .my-region__city
 	float: left
-	height: 47px
-	line-height: 46px
 	font-size: 12px
 .my-region__title
 	margin-right: 10px
 	color: #999 
 .top__down
 	height: 52px 
+.my-region__city
+	position: relative
+	padding-right: 15px
+	cursor: pointer
+	+tr(color .3s linear)
+	&:after, &:before
+		content: ""
+		position: absolute
+		top: 6px
+		right: 0px
+		+tr(opacity .3s linear)
+	&:after
+		+s(my-region-arr)
+	&:before
+		opacity: 0 
+		+s(my-region-arr-h)
+	&:hover
+		color: $red
+		&:after
+			opacity: 0
+		&:before
+			opacity: 1
+			
 	
+
 .nav
 	float: left
 	> ul
 		float: left
 		> li
 			float: left
-			margin-left: 60px
+			margin-left: 55px
+			+rt(1600)
+				margin: 0
 			&:first-child
 				margin: 0
+			&:hover
+				> a
+					background: $red 
+					color: #FFF 
+					&:after
+						opacity: 1
+					&:before
+						opacity: 0
 			> a
 				position: relative
 				display: block
 				height: 52px
-				padding: 0 30px 0 0
+				padding: 0 40px 0 20px
 				line-height: 52px
 				font-size: 16px
 				color: $dark
-				i
+				+tr(all .2s linear)
+				&:after, &:before
+					content: ""
 					position: absolute
 					top: 23px
-					right: 10px 
+					right: 16px
+					+tr(opacity .2s linear)
+				&:before 
 					+s(nav-arr)
+				&:after
+					opacity: 0 
+					+s(nav-arr-h)
+.nav__sub
+	display: none
+	position: absolute
+	top: 100%
+	left: 0
+	right: 0
+	padding: 20px 40px
+	background: $red 
+	.link
+		&:before, &:after
+			background: #FFF 
+.nav__sub-list
+	font-size: 0
+	ul
+		display: inline-block
+		width: 23%
+		margin-right: 2%
+		vertical-align: top
+	li
+		margin-bottom: 10px
+	a
+		font-size: 12px 
+		color: #FFF 
+	.nav__sub-title
+		margin-bottom: 15px
+		a
+			font-size: 16px
+.nav__sub-list_mod
+	padding-top: 20px
+	margin-top: 20px
+	border-top: 1px dotted #fff 
+	a
+		text-transform: uppercase
+	
+
 
 .my-mts-link
 	float: right
@@ -157,47 +282,223 @@ a
 		position: relative
 		display: block
 		height: 48px
-		padding: 0 0 0 27px
+		padding: 0 10px 0 35px
 		border-bottom: 4px solid $red 
 		line-height: 52px		
 		font-size: 16px
 		color: $dark
+		+tr(all .3s linear)
+		&:hover, &.is-active
+			background: $red
+			color: #FFF
+			span
+				color: #fff
+			i
+				&:after
+					opacity: 1
+				&:before
+					opacity: 0 
+		&.is-active
+			background: #000 
 	span
 		color: $red 
+		+tr(color .3s linear)
 	i
 		position: absolute
-		top: 19px
-		left: 0
-		+s(my-mts-heart)
+		top: 16px
+		left: 10px
+		&:after, &:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			+tr(opacity .3s linear)
+		&:after
+			opacity: 0 
+			+s(my-mts-egg-h)
+		&:before
+			+s(my-mts-egg)
+
 
 .lang
 	position: absolute
 	top: 40px
 	right: 40px
+	+rt(1600)
+		right: 20px
 	a
+		position: relative
 		display: inline-block
+		padding-bottom: 7px
 		font-size: 12px
 		color: #999
+		+tr(color .3s linear)
 		&:first-child
 			margin-right: 15px
 		&.is-active
 			color: $red 
+			cursor: default
+			&:after
+				display: none
+		&:after
+			content: ""
+			position: absolute
+			bottom: 0
+			left: 50%
+			right: 50%
+			height: 4px
+			background: $red 
+			+tr(all .1s linear)
+		&:hover
+			color: $red 
+			&:after	
+				left: 0
+				right: 0
 			
+
 .top__search	
 	position: absolute
 	top: 35px
 	right: 115px
-	
-.top__search-btn
-	width: 28px
-	height: 28px
-	border-radius: 50%
+	border-radius: 14px
+	background: #FFF 
 	border: 2px solid #bab9b9
+	font-size: 0
+	white-space: nowrap
+	+rt(1600)
+		right: 95px
+	&:hover
+		.top__serach-field
+			width: 115px
+			padding: 0 10px 
+			+rt(1600)
+				width: 90px
+.top__serach-field, .top__serach-btn
+	vertical-align: top
+.top__serach-field
+	width: 0
+	height: 25px
+	background: none
+	+tr(all .3s linear)
+.top__search-btn
+	width: 25px
+	height: 25px
 	background: none 
 	font-size: 0
 	i
 		display: inline-block
 		+s(search)
+
+
+.footer
+	padding: 20px 0 30px
+	border-top: 1px dotted $dark 
+.footer__nav
+	margin-bottom: 20px
+	font-size: 0
+	ul
+		display: inline-block
+		width: 20%
+		margin-right: 5%
+		vertical-align: top
+	li
+		margin-bottom: 5px
+	a
+		font-size: 12px
+		color: $red 
+	.footer__nav-title
+		margin-bottom: 10px
+		a
+			font-size: 16px
+			color: $dark 
+	.social
+		padding-top: 10px
+.footer__down
+	position: relative
+	padding-top: 20px 
+	border-top: 1px dotted $dark 
+	+clr
+.copyright
+	float: left
+	margin-right: 130px
+.footer__phone
+	float: left
+	+rt(1600)
+		float: none
+		clear: both
+.created
+	position: absolute
+	top: 20px
+	right: 0
+	padding-right: 110px
+	a
+		position: absolute
+		top: 4px
+		right: 0
+		+hidetext
+		+s(vintage-h)
+		&:before
+			content: ""
+			display: block
+			+s(vintage)
+			+tr(opacity .2s linear)
+		&:hover
+			&:before
+				opacity: 0 
+
+
+.social
+	font-size: 0
+	a
+		position: relative
+		display: inline-block
+		margin-right: 10px
+		vertical-align: top
+		width: 24px
+		height: 24px
+		border: 2px solid $dark
+		border-radius: 50%
+		+tr(all .2s linear)
+		&:hover
+			background: $red
+			border-color: $red 
+			i
+				&:before
+					opacity: 0 
+			.social__fb
+				+s(fb-h)
+			.social__vk
+				+s(vk-h)
+			.social__tw
+				+s(tw-h)
+			.social__rss
+				+s(rss-h)
+	i
+		position: absolute
+		&:before
+			content: ""
+			display: block
+			+tr(opacity .2s linear)
+.social__fb
+	top: 4px
+	left: 9px
+	&:before
+		+s(fb)
+.social__vk
+	top: 6px
+	left: 8px
+	&:before
+		+s(vk)
+.social__tw
+	top: 6px
+	left: 3px 
+	&:before
+		+s(tw)
+.social__rss
+	top: 4px
+	left: 6px
+	&:before
+		+s(rss)
 
 
 .btn
@@ -241,7 +542,7 @@ a
 .btn__over
 	left: -100%
 	background: $dark
-	+tr(all .15s linear)
+	+tr(all .3s linear)
 	opacity: 0 
 	z-index: 2 
 	&:after

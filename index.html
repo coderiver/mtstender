@@ -8,6 +8,7 @@
 	<link rel="stylesheet" media="screen" href="css/screen.css" >
 	<!--[if IE]><script src="js/html5shiv.js"></script><![endif]-->
 	<script src="js/jquery.js"></script>
+	<script src="js/cycle.js"></script>
 	<script src="js/common.js"></script>
 </head>
 <body>
@@ -27,9 +28,54 @@
 				</ul>
 			</div>
 			<div class="top__down">
-				<nav class="nav">
+				<nav class="nav js-nav">
 					<ul>
-						<li><a href="#">Мобильная связь<i></i></a></li>
+						<li>
+							<a href="#">Мобильная связь<i></i></a>
+							<div class="nav__sub">
+								<div class="nav__sub-list">
+									<ul>
+										<li class="nav__sub-title"><a class="link" href="#">Тарифы</a></li>
+										<li><a class="link" href="#">МТС-Контракт</a></li>
+										<li><a class="link" href="#">МТС-Предоплата</a></li>
+										<li><a class="link" href="#">МТС-Ультра</a></li>
+									</ul>
+									<ul>
+										<li class="nav__sub-title"><a class="link" href="#">Услуги</a></li>
+										<li><a class="link" href="#">Пакетные услуги</a></li>
+										<li><a class="link" href="#">Удобство свзязи</a></li>
+										<li><a class="link" href="#">Мобильные платежи</a></li>
+										<li><a class="link" href="#">Информационные сервисы</a></li>
+									</ul>
+									<ul>
+										<li class="nav__sub-title"><a class="link" href="#">Роуминг</a></li>
+										<li><a class="link" href="#">Абонтентам МТС-Контракт</a></li>
+										<li><a class="link" href="#">Абонентам МТС-Предоплата</a></li>
+										<li><a class="link" href="#">Советы путешественникам</a></li>
+										<li><a class="link" href="#">Иностраным гостям</a></li>
+									</ul>
+									<ul>
+										<li class="nav__sub-title"><a class="link" href="#">Развлечения</a></li>
+										<li><a class="link" href="#">Каталог развлекательных сервисов</a></li>
+										<li><a class="link" href="#">Настройка звонка</a></li>
+										<li><a class="link" href="#">Настройка мелодии ожидания</a></li>
+										<li><a class="link" href="#">Услуги гео-локации</a></li>
+									</ul>
+								</div>
+								<div class="nav__sub-list nav__sub-list_mod">
+								 	<ul>
+								 		<li><a class="link" href="#">Калькулятор тарифа</a></li>
+								 		<li><a class="link" href="#">Выгодный переход на контракт</a></li>
+								 	</ul>
+								 	<ul>
+								 		<li><a class="link" href="#">Как оптимизировать расходы на связь?</a></li>
+								 	</ul>
+								 	<ul>
+								 		<li><a class="link" href="#">Как подключить и настроить роуминг?</a></li>
+								 	</ul>
+								 </div>
+							</div>
+						</li>
 						<li><a href="#">Интернет<i></i></a></li>
 						<li><a href="#">Поддержка<i></i></a></li>
 					</ul>
@@ -43,7 +89,8 @@
 			<a href="#">Укр</a>
 			<a class="is-active" href="#">Рус</a>
 		</div>
-		<div class="top__search">
+		<div class="top__search js-top-search">
+			<input class="top__serach-field" type="text">
 			<button class="top__search-btn"><i></i></button>
 		</div>
 	</div>
@@ -51,6 +98,9 @@
 <div class="m-slider js-m-slider">
 	<div class="m-slider__pic">
 		<div class="m-slider__pic-item" style="background-image: url(img/slide1.jpg)"></div>
+		<div class="m-slider__pic-item" style="background-image: url(http://placehold.it/1800x800)"></div>
+		<div class="m-slider__pic-item" style="background-image: url(img/slide1.jpg)"></div>
+		<div class="m-slider__pic-item" style="background-image: url(http://placehold.it/1800x800)"></div>
 	</div>
 	<div class="m-slider__container">
 		<div class="m-slider__content">
@@ -67,18 +117,51 @@
 					</a>
 				</div>
 			</div>
+			<div class="m-slider__item">
+				<div class="m-slider__title">Супер-пупер новая акция</div>
+				<div class="m-slider__text">Услуга «<a href="#">Бон Вояж</a>» стирает границы между направлениями звонков в роуминге! Звонки в любой стране мира по единым выгодным тарифам!</div>
+				<div class="m-slider__more">
+					<a class="btn" href="#">
+						<span class="btn__in">
+							<span class="btn__under"></span>
+							<span class="btn__text">Подробнее</span>
+							<span class="btn__over"></span>
+						</span>						
+					</a>
+				</div>
+			</div>
+			<div class="m-slider__item">
+				<div class="m-slider__title">Акция "Абсолютний ноль"</div>
+				<div class="m-slider__text">Услуга «<a href="#">Бон Вояж</a>» стирает границы между направлениями звонков в роуминге! Звонки в любой стране мира по единым выгодным тарифам! Полний ноль на все сети и все оператори!</div>
+				<div class="m-slider__more">
+					<a class="btn" href="#">
+						<span class="btn__in">
+							<span class="btn__under"></span>
+							<span class="btn__text">Подробнее</span>
+							<span class="btn__over"></span>
+						</span>						
+					</a>
+				</div>
+			</div>
+			<div class="m-slider__item">
+				<div class="m-slider__title">Супер-пупер новая акция</div>
+				<div class="m-slider__text">Услуга «<a href="#">Бон Вояж</a>» стирает границы между направлениями звонков в роуминге! Звонки в любой стране мира по единым выгодным тарифам!</div>
+				<div class="m-slider__more">
+					<a class="btn" href="#">
+						<span class="btn__in">
+							<span class="btn__under"></span>
+							<span class="btn__text">Подробнее</span>
+							<span class="btn__over"></span>
+						</span>						
+					</a>
+				</div>
+			</div>
 		</div>
-		<div class="m-slider__pager">
-			<a class="is-active" href="#"></a>
-			<a href="#"></a>
-			<a href="#"></a>
-		</div>
+		<div class="m-slider__pager"></div>
 		<div class="m-slider__service">
-			<a href="#"><em><i class="m-slider__service-account"></i></em><span>Пополнить счет</span></a>
-			<a href="#"><em><i class="m-slider__service-sms"></i></em><span>Отправить SMS | MMS</span></a>
-		</div>
-		<div class="m-slider__my-mts">
-			<a href="#">Мой МТС</a>
+			<a href="#"><i class="m-slider__service-account"></i><span>Пополнить счет</span></a>
+			<a href="#"><i class="m-slider__service-sms"></i><span>Отправить SMS | MMS</span></a>
+			<a href="#"><i class="m-slider__service-mts"></i><span>Мой MTS</span></a>
 		</div>
 		<button class="m-slider__prev"></button>
 		<button class="m-slider__next"></button>
@@ -111,7 +194,7 @@
 <div class="m-info">
 	<div class="container">
 		<div class="m-news">
-			<div class="title"><a href="#">Новости <span>мтс</span></a></div>
+			<div class="title"><a class="link" href="#">Новости <span>мтс</span></a></div>
 			<div class="m-news__list">
 				<div class="m-news__item">
 					<div class="m-news__date">
@@ -120,7 +203,7 @@
 						<span>12</span>
 					</div>
 					<div class="m-news__title">
-						<a href="#">Безлимитный Новый год!</a>
+						<a class="link" href="#">Безлимитный Новый год!</a>
 					</div>
 					<div class="m-news__text">Звонки в сети МТС, на городские номера, за границу, мобильный Интернет и MMS — полный безлимит 31-го декабря!</div>
 				</div>
@@ -131,26 +214,26 @@
 						<span>12</span>
 					</div>
 					<div class="m-news__title">
-						<a href="#">МТС Бонус: окно в мир открыто!</a>
+						<a class="link" href="#">МТС Бонус: окно в мир открыто!</a>
 					</div>
 					<div class="m-news__text">Открыто бонусное окно в мир для всех абонентов предоплаты, участников программы лояльности МТС Бонус!</div>
 				</div>
 			</div>
 		</div>
 		<div class="m-section">
-			<div class="title"><a href="#">популярные разделы</a></div>
+			<div class="title"><a class="link" href="#">популярные разделы</a></div>
 			<div class="m-section__list">
 				<ul>
-					<li><a href="#">Получить настройки</a></li>
-					<li><a href="#">Развлечения</a></li>
-					<li><a href="#"><span>МТС</span>-ULTRA</a></li>
-					<li><a href="#">золотые номера</a></li>
+					<li><a class="link" href="#">Получить настройки</a></li>
+					<li><a class="link" href="#">Развлечения</a></li>
+					<li><a class="link" href="#"><span>МТС</span>-ULTRA</a></li>
+					<li><a class="link" href="#">золотые номера</a></li>
 				</ul>
 				<ul>
-					<li><a href="#">Перевод денег</a></li>
-					<li><a href="#">Роуминг</a></li>
-					<li><a href="#">Супер интернет</a></li>
-					<li><a href="#"><span>другие функции</span></a></li>
+					<li><a class="link" href="#">Перевод денег</a></li>
+					<li><a class="link" href="#">Роуминг</a></li>
+					<li><a class="link" href="#">Супер интернет</a></li>
+					<li><a class="link" href="#"><span>другие функции</span></a></li>
 				</ul>
 			</div>
 		</div>
@@ -158,13 +241,81 @@
 </div>
 <div class="container">
 	<div class="m-more">
-		<div class="m-sim"><i></i>Получи микро SIM-карту для своего телефона<span>Бесплатно</span></div>
-		<div class="m-action"></div>
-		<div class="m-help"></div>
+		<div class="m-more__item m-more__item_sim">
+			<a href="#">
+				<div class="m-more__go">перейти</div>
+				<div class="m-more__in"><i></i>Получи микро<br>SIM-карту<br>для своего телефона<span>Бесплатно</span></div>
+			</a>
+		</div>
+		<div class="m-more__item m-more__item_action">
+			<a href="#">
+				<div class="m-more__go">перейти</div>
+				<div class="m-more__in">легкий переход с другого оператора<span>узнай больше</span><i></i></div>
+			</a>
+		</div>
+		<div class="m-help">
+			<div class="m-help__title">
+				<span>Есть</span>
+				<i>/</i>
+				<span>вопросы?</span>
+			</div>
+			<ul class="m-help__info">
+				<li class="m-help__phone">
+					<strong>Служба поддержки</strong>
+					<span><i>044</i>240 0000</span>
+				</li>
+				<li class="m-help__or">или</li>
+				<li class="m-help__mobile">
+					<strong>бесплатно в сети МТС</strong>
+					<span>111</span>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 <footer class="footer">
-	sdf
+	<div class="container">
+		<nav class="footer__nav">
+			<ul>
+				<li class="footer__nav-title"><a class="link" href="#">Компания</a></li>
+				<li><a class="link" href="#">О компании</a></li>
+				<li><a class="link" href="#">Покрытие</a></li>
+				<li><a class="link" href="#">Социальная ответственность</a></li>
+				<li><a class="link" href="#">Карьера</a></li>
+				<li><a class="link" href="#">Закупки</a></li>
+			</ul>
+			<ul>
+				<li class="footer__nav-title"><a class="link" href="#">Новости и акции</a></li>
+				<li><a class="link" href="#">Новости</a></li>
+				<li><a class="link" href="#">Акции</a></li>
+				<li><a class="link" href="#">Пресс-центр</a></li>
+			</ul>
+			<ul>
+				<li class="footer__nav-title"><a class="link" href="#">Инвесторам и партнерам</a></li>
+				<li><a class="link" href="#">Инвесторам</a></li>
+				<li><a class="link" href="#">Операторам</a></li>
+				<li><a class="link" href="#">Контент-провайдерам</a></li>
+			</ul>
+			<ul>
+				<li class="footer__nav-title"><a class="link" href="#">Обратная связь</a></li>
+				<li><a class="link" href="#">Задать вопрос оператору</a></li>
+				<li><a class="link" href="#">Оставить обратную связь</a></li>
+				<li>
+					<div class="social">
+						<a href="#"><i class="social__fb"></i></a>
+						<a href="#"><i class="social__vk"></i></a>
+						<a href="#"><i class="social__tw"></i></a>
+						<a href="#"><i class="social__rss"></i></a>
+					</div>
+				</li>
+			</ul>
+		</nav>
+		<div class="footer__down">
+			<div class="copyright">© МТС. Все права защищены</div>
+			<div class="footer__phone">Телефон службы поддержки: 044-240-0000 или 111 бесплатно в сети МТС</div>
+			<div class="created">Сайт создан студией<a href="#">Vintage</a></div>
+		</div>
+	</div>
 </footer>
 </body>
 </html>

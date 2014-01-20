@@ -1,3 +1,20 @@
+//load scripts
+$.when(
+    $.getScript( "js/jquery.js" ),
+    $.getScript( "js/cycle.js" ),
+    $.getScript( "js/common.js" ),
+    $.Deferred(function( deferred ){
+        $( deferred.resolve );
+    })
+).done(function(){
+    
+    //place your code here, the scripts are all loaded
+    //You'll get an error in the console since the script files does'nt exists, but that shows that the browser tried loading them
+    alert('dfg');
+});
+
+
+
 $(document).ready(function() {
 
 //main slider
@@ -17,7 +34,7 @@ function main_slider() {
 		el_content_items = el.find('.m-slider__content');
 		el_pic_items.cycle({
 			fx: 'fade',
-		  timeout: 4000,
+		  timeout: 6000,
 		  prev: el_prev,
 		  next: el_next,
 		  pager: el_pager,
@@ -25,7 +42,7 @@ function main_slider() {
 		});
 		el_content_items.cycle({
 			fx: 'fade',
-		  timeout: 4000,
+		  timeout: 6000,
 		  prev: el_prev,
 		  next: el_next,
 		  pager: el_pager,

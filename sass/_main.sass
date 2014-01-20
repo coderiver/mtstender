@@ -44,17 +44,21 @@
 		.m-slider__title,
 		.m-slider__text,
 		.m-slider__more
-			padding: 0
 			opacity: 1 
+		.m-slider__title
+			bottom: 130px
+		.m-slider__text
+			bottom: 75px
+		.m-slider__more
+			bottom: 0
 .m-slider__title,
 .m-slider__text,
 .m-slider__more
-	padding-bottom: 70px
+	position: absolute
+	left: 0
+	width: 580px 
 	opacity: 0
-	+tr(all .2s linear) 
-.m-slider__title
-	margin-bottom: 10px
-	+transition-delay(.5s)
+	+tr(all .3s linear) 
 .m-slider__title-in, .m-slider__title-sub
 	+bold
 	color: #fff 
@@ -64,13 +68,20 @@
 	font-size: 70px	
 .m-slider__title-sub
 	font-size: 40px 
+.m-slider__title
+	bottom: 80px
 .m-slider__text
-	margin-bottom: 25px
+	bottom: 25px
 	font-size: 16px
 	color: #FFF
 	+transition-delay(.25s)
 	a
 		color: $yel 
+.m-slider__more
+	bottom: -50px
+	+transition-delay(.5s)
+	.btn
+		vertical-align: top
 .m-slider__pager
 	position: absolute
 	left: 40px
@@ -195,9 +206,9 @@
 	vertical-align: top
 	&:first-child
 		margin-right: 4%
-		+rt(1280)
-			margin: 0 0 25px 
-	+rt(1280)
+		+rt(1270)
+			margin: 0 0 25px
+	+rt(1270)
 		width: 100%
 .m-serv__title
 	position: absolute
@@ -229,6 +240,7 @@
 		vertical-align: middle
 		color: $dark
 		overflow: hidden
+		white-space: nowrap
 		+tr(all .2s linear)
 		&:before, &:after
 			content: ""
@@ -283,6 +295,7 @@
 			+tr(opacity .2s linear)
 	span
 		font-size: 14px
+		white-space: normal
 	em
 		position: absolute
 		top: 0

@@ -52,20 +52,11 @@ top_search();
 //nav
 function nav() {
 	var nav = $('.js-nav');
-
-	
 	nav.find('li').hover(function(){
-		$(this).find('.nav__sub').slideDown();
+		$(this).find('.nav__sub').delay(200).slideDown(200);
 	}, function(){
-		$(this).find('.nav__sub').slideUp();
+		$(this).find('.nav__sub').slideUp(200);
 	});
-
-
-
-	
-
-
-	
 }
 nav();
 

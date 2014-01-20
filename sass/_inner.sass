@@ -38,19 +38,38 @@
 		float: left
 		&.is-active
 			a
-				border-color: $red
-				background: $red
 				color: #fff
+				&:before
+					right: 0
 	a
+		position: relative
 		display: block
-		height: 32px
+		height: 38px
 		padding: 0 20px
-		border: 2px solid #fff
-		line-height: 32px
+		box-shadow: 0 0 0 2px #fff inset
+		line-height: 38px
 		font-size: 14px
 		+bold
 		text-transform: uppercase
-		color: $dark 
+		color: $dark
+		+tr(color .2s linear)
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 100%
+			bottom: 0
+			background: $red 
+			+tr(right .2s linear)
+		&:hover
+			color: #FFF 
+			&:before
+				right: 0
+	span
+		position: relative
+		z-index: 2 
+
 .tariff__links
 	float: right
 	margin-top: 8px
@@ -96,11 +115,30 @@
 		line-height: 84px
 		color: $dark 
 		overflow: hidden
+		+tr(color .2s linear)
+		&:before	
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 100%
+			bottom: 0
+			background: $red
+			+tr(right .2s linear) 
+		&:hover
+			color: #FFF 
+			&:before	
+				right: 0
+			span
+				&:after
+					opacity: 0 
 	i, span
+		position: relative
 		display: inline-block
 		vertical-align: middle
+		z-index: 2 
 	i
-		margin-right: 20px
+		margin: 0 15px
 	span
 		position: relative
 		font-size: 14px 
@@ -109,8 +147,9 @@
 			position: absolute
 			top: 42px
 			right: -500px
-			left: 110%
+			left: 120%
 			border-top: 1px solid #ccc
+			+tr(opacity .2s linear)
 .tariff__for-universal
 	+s(tariff-universal)
 .tariff__for-inet
@@ -209,27 +248,37 @@
 .tariff__item-more
 	button
 		position: relative
-		height: 42px
-		padding: 0 30px
-		border: 4px solid #f4f4f4
-		border-width: 4px 2px 4px 4px
-		background: none 
+		padding-right: 15px
+		+s(btn-more)
 		+bold 
 		font-size: 12px
 		text-transform: uppercase 
 		color: $red 
 		overflow: visible
-		&:after, &:before
+		+tr(color .2s linear)
+		&:hover
+			color: #FFF 
+			i
+				right: 15px
+				opacity: 1 
+	span
+		position: relative
+		z-index: 2 
+	i
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 100%
+		background: $red
+		opacity: 0
+		+tr(all .2s linear) 
+		&:after
 			content: ""
 			position: absolute
-		&:before
-			top: -4px
-			right: -18px
-			+arr(16, 42, #f4f4f4, r)
-		&:after
 			top: 0
-			right: -12px
-			+arr(12, 34, #fff, r)
+			right: -15px
+			+arr(15,43,$red,r)
 .tariff__serv-title
 	margin-bottom: 15px
 	font-size: 26px
@@ -244,30 +293,62 @@
 	li
 		margin-bottom: 10px 
 	a
+		position: relative
 		display: block
-		border: 4px solid #fff
-		padding: 10px
+		box-shadow: 0 0 0 4px #fff inset
+		padding: 14px
 		font-size: 0
 		text-align: center
+		&:before
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 100%
+			bottom: 0
+			background: $red 
+			+tr(right .2s linear)
+		&:hover
+			&:before
+				right: 0
+			i
+				&:after
+					opacity: 1 
+			span
+				color: #FFF 
 	span
 		+bold
 		text-transform: uppercase
 		font-size: 12px
+		+tr(color .2s linear)
 		color: $dark 
 	i, span
+		position: relative
 		display: inline-block
 		vertical-align: middle
+		z-index: 2 
 	i
 		margin-right: 10px
+		&:after
+			content: ""
+			display: block
+			opacity: 0
+			+tr(opacity .2s linear) 
 	+rt(1366)
 		float: left
 		width: 290px 
 .tariff__serv-mb
 	+s(tariff-serv-mb)
+	&:after
+		+s(tariff-serv-mb-h)
 .tariff__serv-minuts
 	+s(tariff-serv-minuts)
+	&:after
+		+s(tariff-serv-minuts-h)
 .tariff__serv-sms
 	+s(tariff-serv-sms)
+	&:after
+		+s(tariff-serv-sms-h)
 .tariff__faq
 	padding-bottom: 30px
 	+clr
@@ -307,8 +388,12 @@
 	&.is-active
 		.accos__head
 			color: $red
+			cursor: default
 			&:before
 				+rotate(180)
+			.link
+				&:after
+					display: none
 .accos__head
 	position: relative
 	padding: 0 0 10px 25px
@@ -323,6 +408,9 @@
 		+s(accos-arr)
 	span
 		border-bottom: 1px dotted 
+	.link
+		&:after
+			bottom: -1px
 .accos__text
 	display: none
 	padding: 0 0 10px 25px

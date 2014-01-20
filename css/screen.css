@@ -85,6 +85,7 @@ a { text-decoration: none; }
 .nav > ul > li { float: left; margin-left: 55px; }
 @media only screen and (max-width: 1600px) { .nav > ul > li { margin: 0; } }
 .nav > ul > li:first-child { margin: 0; }
+.nav > ul > li:hover .nav__sub { z-index: 200; }
 .nav > ul > li:hover > a { background: #ed1c24; color: white; }
 .nav > ul > li:hover > a:after { opacity: 1; }
 .nav > ul > li:hover > a:before { opacity: 0; }

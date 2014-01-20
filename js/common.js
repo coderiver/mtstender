@@ -17,7 +17,7 @@ function main_slider() {
 		el_content_items = el.find('.m-slider__content');
 		el_pic_items.cycle({
 			fx: 'fade',
-		  timeout: 0,
+		  timeout: 4000,
 		  prev: el_prev,
 		  next: el_next,
 		  pager: el_pager,
@@ -25,7 +25,7 @@ function main_slider() {
 		});
 		el_content_items.cycle({
 			fx: 'fade',
-		  timeout: 0,
+		  timeout: 4000,
 		  prev: el_prev,
 		  next: el_next,
 		  pager: el_pager,

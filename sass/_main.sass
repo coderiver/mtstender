@@ -14,6 +14,10 @@
 	right: 0
 	bottom: 0
 	+cover
+.m-slider__pic-item_center
+	background-repeat: no-repeat
+	background-position: 50% 50%  
+	background-size: auto
 .m-slider__container
 	position: absolute
 	top: 100px
@@ -32,7 +36,7 @@
 	position: absolute
 	left: 40px
 	bottom: 115px
-	width: 550px 
+	width: 580px 
 .m-slider__item
 	top: auto !important
 	bottom: 0 !important
@@ -50,12 +54,16 @@
 	+tr(all .2s linear) 
 .m-slider__title
 	margin-bottom: 10px
+	+transition-delay(.5s)
+.m-slider__title-in, .m-slider__title-sub
 	+bold
-	font-size: 70px	
 	color: #fff 
 	line-height: 1
 	text-transform: uppercase
-	+transition-delay(.5s)
+.m-slider__title-in
+	font-size: 70px	
+.m-slider__title-sub
+	font-size: 40px 
 .m-slider__text
 	margin-bottom: 25px
 	font-size: 16px
@@ -149,12 +157,29 @@
 .m-slider__prev, .m-slider__next
 	position: absolute
 	bottom: 33px 
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		opacity: 0
+		+tr(opacity .2s linear)
+	&:hover
+		&:after
+			opacity: 1 
 .m-slider__next
 	right: 40px
 	+s(m-slider-next)
+	&:hover
+		&:after
+			+s(m-slider-next-h)
 .m-slider__prev
 	right: 89px
 	+s(m-slider-prev)
+	&:hover
+		&:after
+			+s(m-slider-prev-h)
+
 
 
 
@@ -483,8 +508,6 @@
 .m-help__text
 	position: relative
 	font-size: 0
-	+rt(1366)
-		font-size: 34px
 	span, em, i
 		display: inline-block
 		vertical-align: top
@@ -493,11 +516,15 @@
 		text-transform: uppercase
 		color: $dark 
 		line-height: 1
+		+rt(1366)
+			font-size: 34px
 	span
 		letter-spacing: -3px
 	i
 		margin: 20px 0 0 10px 
 		+s(m-help-arr)
+		+rt(1366)
+			margin: 10px 0 0 10px
 	em
 		margin-top: 10px
 		font-style: normal 

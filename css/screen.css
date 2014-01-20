@@ -416,8 +416,8 @@ a { text-decoration: none; }
 
 .m-serv__item { position: relative; display: inline-block; width: 48%; padding-left: 35px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: top; }
 .m-serv__item:first-child { margin-right: 4%; }
-@media only screen and (max-width: 1366px) { .m-serv__item:first-child { margin: 0 0 25px; } }
-@media only screen and (max-width: 1366px) { .m-serv__item { width: 100%; } }
+@media only screen and (max-width: 1280px) { .m-serv__item:first-child { margin: 0 0 25px; } }
+@media only screen and (max-width: 1280px) { .m-serv__item { width: 100%; } }
 
 .m-serv__title { position: absolute; top: 0; left: 0; width: 35px; height: 100px; }
 .m-serv__title span { display: block; width: 100px; height: 30px; margin: 35px 0 0 -35px; text-align: center; -moz-transform: rotate(-90deg); -o-transform: rotate(-90deg); -webkit-transform: rotate(-90deg); -ms-transform: rotate(-90deg); transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.Matrix(M11=$m11, M12=$m12,M21=$m21, M22=$m22, sizingMethod='auto expand'); zoom: 1; font-family: "bold", arial, sans-serif; font-size: 18px; text-transform: uppercase; }

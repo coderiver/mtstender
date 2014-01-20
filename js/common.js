@@ -52,11 +52,28 @@ top_search();
 //nav
 function nav() {
 	var nav = $('.js-nav');
-	nav.find('li').hover(function(){
-		$(this).find('.nav__sub').slideDown(300);
-	}, function(){
-		$(this).find('.nav__sub').slideUp(300);
+
+	
+	nav.find('li').each(function(){
+		running = 0;
+		$(this).hover(function(){
+			
+			if (!running) {
+				running = 1;
+				$(this).find('.nav__sub').slideDown(200,function(){
+					running = 0;
+				});
+			};
+		}, function(){
+			$(this).find('.nav__sub').slideUp(200);
+		});
 	});
+
+
+	
+
+
+	
 }
 nav();
 

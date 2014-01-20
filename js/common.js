@@ -53,9 +53,9 @@ top_search();
 function nav() {
 	var nav = $('.js-nav');
 	nav.find('li').hover(function(){
-		$(this).find('.nav__sub').delay(200).slideDown(200);
+		$(this).find('.nav__sub').slideDown();
 	}, function(){
-		$(this).find('.nav__sub').slideUp(200);
+		$(this).find('.nav__sub').slideUp();
 	});
 }
 nav();
